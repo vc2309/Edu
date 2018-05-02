@@ -1,0 +1,5 @@
+create a 2/1 1 1/1 0
+print a
+create b 3/1 2 1/1 1
+print b
+add a b

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+	echo Wrong number of parameters! >&2
+	exit 1
+fi
+
+for name in $(cat "${1}"); do	
+	if [ ! -e ${name}.in ]; then
+		echo Missing .in file! >&2
+		exit 2
+	fi
+
+        if [ ! -e ${name}.out ]; then
+                echo Missing .out file! >&2
+                exit 3
+        fi
+
+	if [ ! -r ${name}.in ]; then
+		echo Unreadable .in! >&2
+		exit 4
+	fi
+        if [ ! -r ${name}.out ]; then
+                echo Unreadable .out! >&2
+                exit 5
+        fi
+done
+
+for name in $(cat ${1}); do
+	tmpfile=$(mktemp)
+	if [ -e ${name}.args ]; then
+		${2} $(cat "${name}.args") < ${name}.in >> "$tmpfile"
+	else	
+		${2} < ${name}.in >> "$tmpfile"
+	fi
+	diff $tmpfile ${name}.out > /dev/null
+	if [ $? -ne 0 ]; then
+		echo Test failed: ${name}
+		echo Input:
+		cat ${name}.in
+		echo Expected:
+		cat ${name}.out
+		echo Actual:
+		cat $tmpfile
+	fi
+	rm "$tmpfile"
+done
+

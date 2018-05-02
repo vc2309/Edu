@@ -1,0 +1,7 @@
+print 0
+attach 0 0 3
+attach 0 1 2
+print 1
+attach 1 0 4
+print 0
+print 1

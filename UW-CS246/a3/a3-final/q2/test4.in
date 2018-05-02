@@ -1,0 +1,15 @@
+a: b
+a: c
+a: d
+a: e
+a: f
+a: g
+a: h
+a: i
+a: j
+touch j
+make a
+a: k
+make a
+a: l
+

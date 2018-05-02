@@ -1,0 +1,13 @@
+#!/bin/bash
+word=$1
+c1=`egrep -c $word $2`
+c2=`egrep -c $word $3`
+if [ "$c1" -gt "$c2" ]
+then
+echo "$2"
+elif [ "$c2" -gt "$c1" ]
+then
+echo "$3"
+else
+echo "$2 $3"
+fi

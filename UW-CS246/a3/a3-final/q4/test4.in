@@ -1,0 +1,9 @@
+print 0
+attach 0 0 1
+attach 0 0 3
+attach 0 1 4
+print 1
+print 0
+mutate 1 2 12
+print 1
+print 0

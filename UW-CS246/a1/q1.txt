@@ -1,0 +1,16 @@
+sed -n 10,25p /usr/share/dict/words
+ls -a -r
+egrep -v cs246 myfile.txt
+egrep cs246 myfile.txt | head -1
+egrep -i -c linux.student.cs.uwaterloo.ca myfile.txt
+ls *.c/
+head -20 myfile.txt | egrep -c [0-9]+
+ls | egrep ^a.*b.*c$
+ls -l | egrep .*x.*[0-9]+.*
+who | awk '{print $1}' | sort
+
+egrep cs246 myfile.txt | egrep cs247
+egrep "^(ha)*(ha)$" myfile.txt
+egrep "^(ha+)*(ha+)$" myfile.txt
+egrep "a{1,}b{2,}" myfile.txt
+egrep "^(unsigned )?int .*; (//.*)?" myfile.txt

@@ -1,0 +1,53 @@
+#!/bin/bash
+if [ $# -ne 2 ]; then
+	echo Wrong number of parameters! >&2
+	exit 1
+fi
+
+files="`grep -o -E '\w+' $1 | sort -u -f`"
+prog=$2
+for f in $files
+do
+	if [ ! -e ${f}.out ]; then
+		echo Missing .out file! >&2
+		exit 2
+	fi
+	if [ ! -r ${f}.out ]; then
+		echo Unreadable .out file! >&2
+		exit 3
+	fi
+inf="$f.args"
+inp=`cat $inf`
+tmpfile=$(mktemp)
+	# args=cat "${f}.args"
+	${2} $inp >> "$tmpfile"
+	diff $tmpfile ${f}.out > /dev/null
+	if [ $? -ne 0 ]; then
+		echo Test failed: ${f}
+		echo Input:
+		cat ${f}.args
+		echo Expected:
+		cat ${f}.out
+		echo Actual:
+		cat $tmpfile
+	fi
+	rm "$tmpfile"
+# $prog $inp > result.txt
+# #diff result.txt $f.out
+# if cmp -s result.txt $f.out
+# then
+# echo "Test passed: $f"
+# else
+# echo "Test failed: $f"
+# echo "Args:" 
+# cat $f.args
+# echo""
+# echo "Expected:"
+# cat $f.out
+# echo""
+# echo "Actual:"
+# cat result.txt
+# echo""
+# fi
+# rm result.txt
+done
