@@ -12,8 +12,8 @@
 
 ### Implicit Java conversion
 if you try this, java implicitly converts any type in an init statement to an int
-		
-``` 
+```
+>>>>>>> f2d57bb2a9c454cdfe6a3c2574cdcebc7b121a88
 byte myByte = 127;
 byte myNew = (myByte/2); //Error
 //Explicitly cast to byte
