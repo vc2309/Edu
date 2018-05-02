@@ -1,6 +1,6 @@
 # Variables, Data Types, Statements
 
-## Datatypes
+## Primitive Datatypes
 - int : range (-,+) 2,147,483,648.
 	Can write literals in java like this `int myMax = 2_147_483_648;`
 - byte : width of 8, range 128
@@ -13,15 +13,25 @@
 ### Implicit Java conversion
 if you try this, java implicitly converts any type in an init statement to an int
 		
-		```
-		byte myByte = 127;
-		byte myNew = (myByte/2); //Error
-		//Explicitly cast to byte
-		byte myNew = (byte)(myByte/2);
-		```
+``` 
+byte myByte = 127;
+byte myNew = (myByte/2); //Error
+//Explicitly cast to byte
+byte myNew = (byte)(myByte/2);
+```
 
-		Implicitly casts up (byte->int) or (int->long) etc
+Implicitly casts up (byte->int) or (int->long) etc
 
 ## Floating point
 	- float : initialize with 
 			` float myFloat = 5.4L;` or `=5L;`
+	- double : similar
+		Use double because : - most precise - default usage by operations - much faster on most computers
+
+## Char
+	- width is 2 bytes
+	- unicode character code
+
+
+## String
+	- check source code String class
