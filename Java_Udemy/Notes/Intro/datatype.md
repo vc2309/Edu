@@ -12,13 +12,12 @@
 
 ### Implicit Java conversion
 if you try this, java implicitly converts any type in an init statement to an int
-		
-		```
-		byte myByte = 127;
-		byte myNew = (myByte/2); //Error
-		//Explicitly cast to byte
-		byte myNew = (byte)(myByte/2);
-		```
+```
+byte myByte = 127;
+byte myNew = (myByte/2); //Error
+//Explicitly cast to byte
+byte myNew = (byte)(myByte/2);
+```
 
 		Implicitly casts up (byte->int) or (int->long) etc
 
