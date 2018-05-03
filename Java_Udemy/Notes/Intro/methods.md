@@ -18,3 +18,7 @@
 ## Method signature
 -  method name and the number, type and order of its parameters
 `main(String []args)`
+
+## Method overloading 
+- use the same name for multiple methods
+- must have different params list (number, types etc)

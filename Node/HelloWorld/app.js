@@ -1,0 +1,1 @@
+console.log("Hello World");	//Access the log function of console object
