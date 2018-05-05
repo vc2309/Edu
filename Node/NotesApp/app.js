@@ -12,7 +12,10 @@ const notes = require('./notes.js');
 console.log("Starting app...");
 
 const argv = yargs.argv; //yargs version of args
-
+printNote = (note) => {
+	console.log(`Title : ${note.title}`);
+	console.log(`Body : ${note.body}`);
+}
 switch(argv._[0])
 {
 	case "add":
@@ -20,6 +23,11 @@ switch(argv._[0])
 		var conf=notes.addNote(argv.title, argv.body);
 		if(conf){
 			console.log("Note added");
+			var note = { 
+				title : argv.title, 
+				body : argv.body
+			};
+			printNote(note);
 		}
 		else
 		{
@@ -34,13 +42,15 @@ switch(argv._[0])
 
 	case "read":
 		console.log("Reading note...");	
-		notes.getNote(argv.title);
+		var note = notes.getNote(argv.title);
+		note? printNote(note) : console.log("Note not found");
 	break;
 
 	case "remove":
 		console.log("Removing note...");
-		notes.removeNote(argv.title);
+		notes.removeNote(argv.title)? console.log("Note not valid") : console.log("Note removed");
 	break;
 
 	default: console.log("Invalid command");
 }
+

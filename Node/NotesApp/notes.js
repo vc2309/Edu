@@ -44,14 +44,24 @@ addNote = (title, body) => {	//ES5 Alternative to module.exports.addNote = funct
 getAll = () => {
 	console.log("Getting all...");
 	var notes = fetchNotes();
+	for (var i = notes.length - 1; i >= 0; i--) {
+		console.log(notes[i]);
+	}
 };
 
 getNote = (title) => {
-	console.log("Getting note", title);
+	var notes = fetchNotes();
+	var filtered = notes.filter((note) => title===note.title);
+	var ret = filtered.length>0 ? filtered[0] : false;
+	return ret;
+
 };
 
 removeNote = (title) => {
-	console.log("Removing note", title);
+	var notes = fetchNotes();
+	var filtered = notes.filter((note) => title!=note.title);
+	saveNotes(filtered);
+	return notes.length == filtered.length;
 };
 
 module.exports = {
