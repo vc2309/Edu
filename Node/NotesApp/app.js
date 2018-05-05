@@ -2,21 +2,50 @@
 const fs = require('fs');
 const os = require('os');
 
+const req_title = {
+			describe: 'Title of note',
+			demand: true, //Means its required
+			alias: "t"
+		   };
+const req_body = {
+		describe: 'Body of note',
+		demand: true,
+		alias: "b"
+	};
+
 //3rd party mods
 const _ = require('lodash');
-const yargs = require('yargs');
+const yargs = require('yargs')	
+const argv = yargs
+.command('add', 'Add a new note',{
+		title: req_title,
+		body: req_body
+	})	//(COMMAND, DESCRIPTION, OBJECT of options.)
+
+.command('list','List all notes')
+
+.command('remove', 'Remove a specific note',{
+	title: req_title
+})
+
+.command('read', 'Read a specific note',{
+	title: req_title
+})
+
+.help()	//Lists all commands, options with --help flag
+
 
 //File mods
 const notes = require('./notes.js');
 
 console.log("Starting app...");
 
-const argv = yargs.argv; //yargs version of args
+
 printNote = (note) => {
 	console.log(`Title : ${note.title}`);
 	console.log(`Body : ${note.body}`);
 }
-switch(argv._[0])
+switch(argv.argv.c_[0])
 {
 	case "add":
 		console.log("Adding note...");	
