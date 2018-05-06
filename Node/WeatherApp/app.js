@@ -1,5 +1,6 @@
 var yargs = require('yargs');
-var geocode = require('./geocode.js')
+var geocode = require('./geocode');
+var weather = require('./weather')
 var argv = yargs
 	.options({
 		address: {
@@ -16,7 +17,8 @@ var argv = yargs
 
 var uri = encodeURIComponent(argv.address);	//T
 
-var add = geocode.getGeocode(uri, (err, res) => {
+geocode.getGeocode(uri, (err, res) => {
+	
 	if(err==="BAD_CON")
 	{
 		console.log("Unable to connect");
@@ -26,9 +28,17 @@ var add = geocode.getGeocode(uri, (err, res) => {
 		console.log(res);
 	}
 	else
-	{
-		console.log(`At ${res.formatted_address}, it is currently ${res.des} at ${res.temp} degrees F.`)
-	}
+	{	
+		weather.getWeather(res, (err, result) => {
+			if(err==="BAD_ADD")
+			{
+				console.log(result);
+			}
+			else
+			{
+				console.log(`At ${res.formatted_address}, it is currently ${result.des} at ${result.temp} degrees F.`)
+			}
+		});
+	}	
 });
-
 console.log("Waiting for response...");

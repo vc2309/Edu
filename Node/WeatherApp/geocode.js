@@ -23,22 +23,7 @@ getGeocode = (uri, callback) => {
 					lng:body.results[0].geometry.location.lng,
 					lat:body.results[0].geometry.location.lat
 				};
-				request({
-					url:`https://api.darksky.net/forecast/f5001fa98e8de0c4ae799863261d3f17/${Add.lat},${Add.lng}`,
-					json: true
-				}, 
-				(err, response, body) => {
-					if(err || response.statusCode !=200)
-					{
-						callback('BAD_ADD',"Unable to fetch weather");
-					}
-					else{
-						Add.temp = body.currently.temperature;
-						Add.des = body.currently.summary;
-						callback(null,Add);
-					}
-				});
-				
+				callback(null,Add);
 			}	
 });
 
