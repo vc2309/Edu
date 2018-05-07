@@ -7,5 +7,8 @@ public class Main {
         vishnuAcc.deposit(10000);
         vishnuAcc.withdrawal(10000);
         BankAccount v = new BankAccount();
+
+        VipAccount vip = new VipAccount();
+        System.out.println(vip.getName()+vip.getEmail());
     }
 }
