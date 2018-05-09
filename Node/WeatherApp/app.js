@@ -17,28 +17,13 @@ var argv = yargs
 
 var uri = encodeURIComponent(argv.address);	//T
 
-geocode.getGeocode(uri, (err, res) => {
-	
-	if(err==="BAD_CON")
-	{
-		console.log("Unable to connect");
-	}
-	else if(err==="BAD_ADD")
-	{
-		console.log(res);
-	}
-	else
-	{	
-		weather.getWeather(res, (err, result) => {
-			if(err==="BAD_ADD")
-			{
-				console.log(result);
-			}
-			else
-			{
-				console.log(`At ${res.formatted_address}, it is currently ${result.des} at ${result.temp} degrees F.`)
-			}
-		});
-	}	
-});
+getGeocode(uri)
+	.then(
+			(response) => {return weather.getWeather(response)}
+		)
+	.then(
+			(res) => {console.log(`At ${res.formatted_address}, it is currently ${res.des} at ${res.temp} degrees F.`);}
+		)
+	.catch(
+		(error) => {console.log(error);});
 console.log("Waiting for response...");

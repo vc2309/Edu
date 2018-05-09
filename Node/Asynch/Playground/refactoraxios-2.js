@@ -28,6 +28,12 @@ getWeather = (Add) => {
 	});
 }
 
+// getGeocode("122009")
+// 	.then(
+// 		(response) => {console.log(JSON.stringify(response,undefined,2));})
+// 	.catch(
+// 		(error) => {console.log(error);});
+
 module.exports = {
 	getWeather
 };

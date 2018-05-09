@@ -9,6 +9,7 @@
   "author": "Vishnu Chopra",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "request": "^2.85.0",
     "requests": "^0.2.2",
     "yargs": "^11.0.0"
