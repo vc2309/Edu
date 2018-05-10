@@ -42,4 +42,9 @@ geocodeAddress('19146').then( (location) => {
 		console.log("Unable to find that address");
 	}
 }
-).then(return )
+).then( (res) => {
+	console.log(`At ${res.formatted_address}, it is currently ${res.des} at ${res.temp} degrees F.`);
+}.catch( (err) => {
+
+	
+});
