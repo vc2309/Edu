@@ -17,7 +17,7 @@ var argv = yargs
 
 var uri = encodeURIComponent(argv.address);	//T
 
-getGeocode(uri)
+geocode.getGeocode(uri)
 	.then(
 			(response) => {return weather.getWeather(response)}
 		)
