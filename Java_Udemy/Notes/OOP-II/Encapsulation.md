@@ -11,4 +11,4 @@
 - "Black-box" model is achieved
 - Business and functionality rules are established, and changes are only valid if they are able to pass validation within the class.
 - User is unbothered with inner workings of class.
-- Low coupling between classes
+- Low coupling between classesd
