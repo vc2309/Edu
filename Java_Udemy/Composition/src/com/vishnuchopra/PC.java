@@ -12,7 +12,7 @@ public class PC {
     }
 
     public void turnOn(){
-        System.out.println("im on biatch");
+        theCase.powerUp();
     }
     public Case getTheCase() {
         return theCase;

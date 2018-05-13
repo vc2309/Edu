@@ -14,6 +14,9 @@ public class Case {
         this.dim = dim;
     }
 
+    public void powerUp(){
+        System.out.println("Power button pressed");
+    }
     public String getModel() {
         return model;
     }

@@ -38,5 +38,11 @@
 
 ---
 
+In essence, Compositional style basically allows for one class to "have" another class instance as a part of it, and to increase abstraction, we can have the owned objects fxns etc. to be called and managed only by the owner class, and not from the Main.
+
+## Composition vs Inheritance
+- Whenever there is a possibile usage of either Inheritance or Composition in designing a program, always attempt to look at Composition first.
+- Composition has certain advantages and flexibility not offered by Inheritance in certain instances.
+
 
 
