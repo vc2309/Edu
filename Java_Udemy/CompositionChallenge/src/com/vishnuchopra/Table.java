@@ -27,7 +27,7 @@ public class Table extends Furniture {
 
     public void takeSeat(){
         int ctr=1;
-        
+
         for (int x=0;x<chairs.length;x++) {
 
             if (!chairs[x].isSeatTaken())
