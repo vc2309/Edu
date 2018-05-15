@@ -33,3 +33,8 @@
 
 ### Using chrome dev tools network tab
 - Use this to view the request details
+
+### Using local resources
+- to access resources such as templates, we can use the following code:
+	`app.use(express.static(__dirname+'/public'));`
+	
