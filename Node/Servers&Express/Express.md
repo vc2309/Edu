@@ -37,4 +37,14 @@
 ### Using local resources
 - to access resources such as templates, we can use the following code:
 	`app.use(express.static(__dirname+'/public'));`
-	
+
+## Templating
+- We use a templating engine called handlebars
+- It is a module in npm called hbs
+`npm install hbs --save`
+- To tell express that we are using handlebars as the templating engine, we use
+	`app.set('view engine', 'hbs');`
+
+### Rendering with handlebars
+- We make a folder called 'views' in our project directory
+- Suppose we make a template called `about.html`, we use the following syntax
