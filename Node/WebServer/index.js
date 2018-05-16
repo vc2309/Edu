@@ -13,6 +13,11 @@ hbs.registerHelper('exact', () => {
 });
 
 app.use(express.static(__dirname + '/public'));
+
+app.use((req,res,next) => {
+	res.send('<h1>Under maintainence</h1>');
+
+});
 app.get('/', (req,res) => {
 	res.render('index.hbs', {
 		title:"Hello biatch",
