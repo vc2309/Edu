@@ -22,7 +22,7 @@ public class Demo {
         Iterator<String> i = places.iterator();
         while (i.hasNext())
         {
-            System.out.println("Now visiting "+i.next());
+            System.out.println("Now visited "+i.next());
         }
 
     }
